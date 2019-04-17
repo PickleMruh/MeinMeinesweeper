@@ -35,15 +35,19 @@ namespace MeinMinesweeper
             this.presetMedium = new System.Windows.Forms.Button();
             this.presetHard = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.sizeX = new System.Windows.Forms.TextBox();
-            this.sizeY = new System.Windows.Forms.TextBox();
-            this.timeAmount = new System.Windows.Forms.TextBox();
             this.isTimeSet = new System.Windows.Forms.CheckBox();
-            this.minesNumber = new System.Windows.Forms.TextBox();
             this.labelRows = new System.Windows.Forms.Label();
             this.labelColumns = new System.Windows.Forms.Label();
             this.labelMines = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
+            this.sizeX = new System.Windows.Forms.NumericUpDown();
+            this.sizeY = new System.Windows.Forms.NumericUpDown();
+            this.minesNumber = new System.Windows.Forms.NumericUpDown();
+            this.timeLimit = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minesNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeLimit)).BeginInit();
             this.SuspendLayout();
             // 
             // startButton
@@ -93,57 +97,25 @@ namespace MeinMinesweeper
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(100, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 31);
+            this.label1.Size = new System.Drawing.Size(187, 29);
             this.label1.TabIndex = 4;
             this.label1.Text = "Set difficulty level";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // sizeX
-            // 
-            this.sizeX.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sizeX.Location = new System.Drawing.Point(522, 100);
-            this.sizeX.Name = "sizeX";
-            this.sizeX.Size = new System.Drawing.Size(133, 32);
-            this.sizeX.TabIndex = 5;
-            // 
-            // sizeY
-            // 
-            this.sizeY.Font = new System.Drawing.Font("Calibri", 15F);
-            this.sizeY.Location = new System.Drawing.Point(522, 138);
-            this.sizeY.Name = "sizeY";
-            this.sizeY.Size = new System.Drawing.Size(133, 32);
-            this.sizeY.TabIndex = 6;
-            // 
-            // timeAmount
-            // 
-            this.timeAmount.Font = new System.Drawing.Font("Calibri", 15F);
-            this.timeAmount.Location = new System.Drawing.Point(522, 237);
-            this.timeAmount.Name = "timeAmount";
-            this.timeAmount.Size = new System.Drawing.Size(133, 32);
-            this.timeAmount.TabIndex = 7;
-            // 
             // isTimeSet
             // 
             this.isTimeSet.AutoSize = true;
-            this.isTimeSet.Location = new System.Drawing.Point(522, 214);
+            this.isTimeSet.Location = new System.Drawing.Point(522, 215);
             this.isTimeSet.Name = "isTimeSet";
             this.isTimeSet.Size = new System.Drawing.Size(108, 17);
             this.isTimeSet.TabIndex = 8;
             this.isTimeSet.Text = "Time to explosion";
             this.isTimeSet.UseVisualStyleBackColor = true;
             this.isTimeSet.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
-            // 
-            // minesNumber
-            // 
-            this.minesNumber.Font = new System.Drawing.Font("Calibri", 15F);
-            this.minesNumber.Location = new System.Drawing.Point(522, 176);
-            this.minesNumber.Name = "minesNumber";
-            this.minesNumber.Size = new System.Drawing.Size(133, 32);
-            this.minesNumber.TabIndex = 9;
             // 
             // labelRows
             // 
@@ -191,21 +163,115 @@ namespace MeinMinesweeper
             this.labelTime.TabIndex = 13;
             this.labelTime.Text = "Time limit";
             // 
+            // sizeX
+            // 
+            this.sizeX.Font = new System.Drawing.Font("Calibri", 15F);
+            this.sizeX.Location = new System.Drawing.Point(522, 101);
+            this.sizeX.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.sizeX.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.sizeX.Name = "sizeX";
+            this.sizeX.Size = new System.Drawing.Size(108, 32);
+            this.sizeX.TabIndex = 14;
+            this.sizeX.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.sizeX.ValueChanged += new System.EventHandler(this.SizeX_ValueChanged);
+            // 
+            // sizeY
+            // 
+            this.sizeY.Font = new System.Drawing.Font("Calibri", 15F);
+            this.sizeY.Location = new System.Drawing.Point(522, 139);
+            this.sizeY.Maximum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            this.sizeY.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.sizeY.Name = "sizeY";
+            this.sizeY.Size = new System.Drawing.Size(108, 32);
+            this.sizeY.TabIndex = 15;
+            this.sizeY.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
+            // minesNumber
+            // 
+            this.minesNumber.Font = new System.Drawing.Font("Calibri", 15F);
+            this.minesNumber.Location = new System.Drawing.Point(522, 177);
+            this.minesNumber.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.minesNumber.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.minesNumber.Name = "minesNumber";
+            this.minesNumber.Size = new System.Drawing.Size(108, 32);
+            this.minesNumber.TabIndex = 16;
+            this.minesNumber.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // timeLimit
+            // 
+            this.timeLimit.Font = new System.Drawing.Font("Calibri", 15F);
+            this.timeLimit.Location = new System.Drawing.Point(522, 238);
+            this.timeLimit.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.timeLimit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.timeLimit.Name = "timeLimit";
+            this.timeLimit.Size = new System.Drawing.Size(108, 32);
+            this.timeLimit.TabIndex = 17;
+            this.timeLimit.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // MeinMenu
             // 
             this.AcceptButton = this.startButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.timeLimit);
+            this.Controls.Add(this.minesNumber);
+            this.Controls.Add(this.sizeY);
+            this.Controls.Add(this.sizeX);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.labelMines);
             this.Controls.Add(this.labelColumns);
             this.Controls.Add(this.labelRows);
-            this.Controls.Add(this.minesNumber);
             this.Controls.Add(this.isTimeSet);
-            this.Controls.Add(this.timeAmount);
-            this.Controls.Add(this.sizeY);
-            this.Controls.Add(this.sizeX);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.presetHard);
             this.Controls.Add(this.presetMedium);
@@ -215,6 +281,10 @@ namespace MeinMinesweeper
             this.ShowIcon = false;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sizeX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minesNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeLimit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,15 +313,15 @@ namespace MeinMinesweeper
         private System.Windows.Forms.Button presetMedium;
         private System.Windows.Forms.Button presetHard;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox sizeX;
-        private System.Windows.Forms.TextBox sizeY;
-        private System.Windows.Forms.TextBox timeAmount;
         private System.Windows.Forms.CheckBox isTimeSet;
-        private System.Windows.Forms.TextBox minesNumber;
         private System.Windows.Forms.Label labelRows;
         private System.Windows.Forms.Label labelColumns;
         private System.Windows.Forms.Label labelMines;
         private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.NumericUpDown sizeX;
+        private System.Windows.Forms.NumericUpDown sizeY;
+        private System.Windows.Forms.NumericUpDown minesNumber;
+        private System.Windows.Forms.NumericUpDown timeLimit;
     }
 }
 

@@ -29,20 +29,44 @@ namespace MeinMinesweeper
 
         private void PresetEasy_Click(object sender, EventArgs e)
         {
-               
+            sizeX.Value = 8;
+            sizeY.Value = 8;
+            minesNumber.Value = 10;
+            isTimeSet.Checked = false;
         }
 
         private void PresetMedium_Click(object sender, EventArgs e)
         {
-            
+            sizeX.Value = 16;
+            sizeY.Value = 16;
+            minesNumber.Value = 30;
+            isTimeSet.Checked = true;
+            timeLimit.Value = 10;
         }
 
         private void PresetHard_Click(object sender, EventArgs e)
         {
-
+            sizeX.Value = 30;
+            sizeY.Value = 16;
+            minesNumber.Value = 99;
+            isTimeSet.Checked = true;
+            timeLimit.Value = 10;
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isTimeSet.Checked == true)
+            {
+                timeLimit.Enabled = false;
+            }
+            else
+            {
+                timeLimit.Enabled = true;
+            }
+
+        }
+
+        private void SizeX_ValueChanged(object sender, EventArgs e)
         {
 
         }
