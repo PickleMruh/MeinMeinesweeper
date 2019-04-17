@@ -1,4 +1,6 @@
-﻿namespace MeinMinesweeper
+﻿using System;
+
+namespace MeinMinesweeper
 {
     partial class MeinMenu
     {
@@ -53,7 +55,7 @@
             this.startButton.TabIndex = 0;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.button1_Click);
+            this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // presetEasy
             // 
@@ -64,7 +66,7 @@
             this.presetEasy.TabIndex = 1;
             this.presetEasy.Text = "Easy";
             this.presetEasy.UseVisualStyleBackColor = true;
-            this.presetEasy.Click += new System.EventHandler(this.button1_Click_1);
+            this.presetEasy.Click += new System.EventHandler(this.PresetEasy_Click);
             // 
             // presetMedium
             // 
@@ -75,7 +77,7 @@
             this.presetMedium.TabIndex = 2;
             this.presetMedium.Text = "Medium";
             this.presetMedium.UseVisualStyleBackColor = true;
-            this.presetMedium.Click += new System.EventHandler(this.button1_Click_2);
+            this.presetMedium.Click += new System.EventHandler(this.PresetMedium_Click);
             // 
             // presetHard
             // 
@@ -86,7 +88,7 @@
             this.presetHard.TabIndex = 3;
             this.presetHard.Text = "Hard";
             this.presetHard.UseVisualStyleBackColor = true;
-            this.presetHard.Click += new System.EventHandler(this.button1_Click_3);
+            this.presetHard.Click += new System.EventHandler(this.PresetHard_Click);
             // 
             // label1
             // 
@@ -133,7 +135,7 @@
             this.isTimeSet.TabIndex = 8;
             this.isTimeSet.Text = "Time to explosion";
             this.isTimeSet.UseVisualStyleBackColor = true;
-            this.isTimeSet.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.isTimeSet.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // minesNumber
             // 
@@ -217,6 +219,22 @@
             this.PerformLayout();
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         #endregion
 
